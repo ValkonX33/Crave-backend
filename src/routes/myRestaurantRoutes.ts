@@ -14,7 +14,7 @@ const uplaod = multer({
 })
 
 //   /api/my/resturant 
-
+router.get("/", jwtCheck, jwtParse, myRestaurantController.getMyRestaurant)
 router.post("/",uplaod.single("imageFile"), validateMyRestaurantRequest,  jwtCheck, jwtParse,    myRestaurantController.createMyRestaurant)
 
 export default router
